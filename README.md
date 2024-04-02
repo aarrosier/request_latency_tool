@@ -1,10 +1,5 @@
 # request_latency_tool
 
-This was written because I wanted a way to measure latency over time for HTTP, DNS, and TCP.
+I once had a need to try and pinpoint where latency was originating from in a web application. This is the initial code I came up with. The tool measures TCP, DNS and HTTP response times and tries to output a visual graph of the results. The results are conveniently output to a graph in a PDF. This is a first version, and has been succesfully used to troubleshoot latency issues (must be run from different network segments). Of course this is only really effective at measuring latency between 2 endpoints (A and B), and if you are troubleshooting an application that goes through several proxies, (A, B, C, D) you will need to run it from different locations... You'd still need to run the tool at different points in the traffic flow to get a more accurate picture. 
 
-Essentially, the tool establishes a TCP connection, makes a DNS request and an HTTP request and records start and end timestamps for each, 
-allowing us to get a latency measurement for each in milliseconds. The results are output to a graph in a PDF. 
-
-This is a first version, and has been succesfully used to troubleshoot latency issues (must be run from different network segments).
-
-The script can run in a docker container on a Ubuntu EC2 instance or VM (docker file not included here).
+This is complete and working (as it is in it's current state), but I will be revising this soon when I have the bandwidth to do so as there are several improvements needed. 
